@@ -14,7 +14,7 @@ struct Vertex {
 	XMFLOAT4 color;
 };
 
-App::App() : mouseRect({}), mMotion({ 0,0,0 })
+App::App() : mouseRect({})
 {
 #pragma region init
 	{

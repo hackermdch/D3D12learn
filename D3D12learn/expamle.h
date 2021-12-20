@@ -26,7 +26,6 @@ protected:
 	XMFLOAT4X4 mView;
 	XMFLOAT4X4 mProj;
 	XMFLOAT3 mEyePos;
-	XMFLOAT3 mMotion;
 private:
 	RECT mouseRect;
 	float pitch;
