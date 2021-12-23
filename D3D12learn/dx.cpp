@@ -180,8 +180,7 @@ bool DXApp::PreTranslateMessage(MSG * msg)
 	{
 		bool flag1 = msg->message >= WM_MOUSEFIRST && msg->message <= WM_MOUSELAST;
 		bool flag2 = msg->message >= WM_KEYFIRST && msg->message <= WM_KEYLAST;
-		if (lastIgnoreInput && (flag1 || flag2))
-			return false;
+		return !(lastIgnoreInput && (flag1 || flag2));
 	}
 	switch (msg->message)
 	{
