@@ -180,7 +180,8 @@ bool DXApp::PreTranslateMessage(MSG * msg)
 	{
 		bool flag1 = msg->message >= WM_MOUSEFIRST && msg->message <= WM_MOUSELAST;
 		bool flag2 = msg->message >= WM_KEYFIRST && msg->message <= WM_KEYLAST;
-		return !(lastIgnoreInput && (flag1 || flag2));
+		if (lastIgnoreInput && (flag1 || flag2))
+			return false;
 	}
 	switch (msg->message)
 	{
@@ -201,7 +202,7 @@ bool DXApp::PreTranslateMessage(MSG * msg)
 		RAWINPUT* raw = (RAWINPUT*)lpb;
 		bool ret = OnRawInput(raw);
 		delete[] lpb;
-		return raw;
+		return ret;
 	}
 	}
 	return true;
